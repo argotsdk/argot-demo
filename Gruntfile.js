@@ -34,6 +34,11 @@ module.exports = function(grunt) {
           standalone: 'argot'
         }
       }
+    },
+    'release-it': {
+      options: {
+        pkgFiles: ['package.json', 'bower.json']
+      }
     }
   });
 
