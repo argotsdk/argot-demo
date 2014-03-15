@@ -1,16 +1,14 @@
-  var container = $("#graph");
-
-  // Determine how many data points to keep based on the placeholder's initial size;
-  // this gives us a nice high-res plot while avoiding more than one point per pixel.
-
+function makeGraph(inside){
+  var container = document.createElement("div");
+  container.id = 'aaaaaaa';
+  container.style.width = "600px";
+  container.style.height = "300px";
+  inside.append(container);
+  container = $('#aaaaaaa');
   var maximum = container.outerWidth() / 2 || 300;
-
-  //
-
   var data = [];
 
   function addValue(value) {
-
     if (data.length === maximum) {
       data = data.slice(1);
     }
@@ -33,8 +31,6 @@
       fill: true
     }
   }];
-
-  //
 
   var plot = $.plot(container, series, {
     grid: {
@@ -77,22 +73,17 @@
     }
   });
 
-  // Create the demo X and Y axis labels
-
   var yaxisLabel = $("<div class='axisLabel yaxisLabel'></div>")
         .text("Sine Wave")
         .appendTo(container);
-
-  // Since CSS transforms use the top-left corner of the label as the transform origin,
-  // we need to center the y-axis label by shifting it down by half its width.
-  // Subtract 20 to factor the chart's bottom margin into the centering.
-
-  yaxisLabel.css("margin-top", yaxisLabel.width() / 2 - 20);
-
-  // Update the random dataset at 25FPS for a smoothly-animating chart
 
   function updateGraph(value) {
     series[0].data = addValue(value);
     plot.setData(series);
     plot.draw();
   }
+
+  return {
+    addValue:updateGraph
+  };
+};

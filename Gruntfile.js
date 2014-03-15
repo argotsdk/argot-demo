@@ -26,12 +26,12 @@ module.exports = function(grunt) {
       }
     },
     browserify: {
-      dist: {
+      'socket.io-stream': {
         files: {
-          'build/argot.js': ['raw/argotWrapper.js']
+          'resources/js/socket.io-stream.js': ['node_modules/socket.io-stream/index.js']
         },
         options: {
-          standalone: 'argot'
+          standalone: 'ss'
         }
       }
     },

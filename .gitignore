@@ -43,3 +43,4 @@ build
 
 node_modules
 /bower_components
+resources/js/socket.io-stream.js
