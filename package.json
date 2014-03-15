@@ -32,7 +32,7 @@
     "grunt-browserify": "~1.3.1"
   },
   "dependencies": {
-    "argot-browser": "0.1.2",
+    "argot-browser": "0.1.3",
     "socket.io": "0.9",
     "express": "~3.4.8",
     "streamifier": "0.1.0",
